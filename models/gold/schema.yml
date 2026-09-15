@@ -1,0 +1,15 @@
+# models/gold/schema.yml
+version: 2
+models:
+  - name: gold_orders
+    description: Fact de pedidos, listo para consumo y para el Semantic Layer.
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: net_revenue
+        data_tests: [not_null]
+  - name: gold_monthly_revenue
+    description: Ingresos agregados por mes.
+    columns:
+      - name: order_month
+        data_tests: [unique, not_null]
