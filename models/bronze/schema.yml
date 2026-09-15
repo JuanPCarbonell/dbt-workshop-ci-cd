@@ -1,0 +1,33 @@
+# models/bronze/schema.yml
+version: 2
+models:
+  - name: bronze_orders
+    description: Pedidos de TPC-H, columnas renombradas.
+    columns:
+      - name: order_id
+        description: Clave primaria del pedido.
+        tests: [unique, not_null]
+      - name: customer_id
+        tests: [not_null]
+      - name: order_status
+        tests:
+          - accepted_values:
+              arguments: 
+                values: ['F', 'O', 'P']
+  - name: bronze_lineitem
+    description: Lineas de pedido de TPC-H.
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: ship_mode
+        tests: [not_null]
+  - name: bronze_customer
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: nation_id
+        tests: [not_null]
+  - name: bronze_nation
+    columns:
+      - name: nation_id
+        tests: [unique, not_null]
