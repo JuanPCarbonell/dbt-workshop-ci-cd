@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: tpch
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    description: TPC-H benchmark (SF1), shared read-only sample.
+    tables:
+      - name: ORDERS
+      - name: LINEITEM
+      - name: CUSTOMER
+      - name: NATION
