@@ -21,3 +21,9 @@ models:
           - accepted_values:
               arguments: 
                 values: ['F', 'O', 'P']
+      # models/silver/schema.yml   (anade este test bajo silver_orders_enriched)
+      - name: estimated_tax
+        data_tests:
+          - accepted_values:            # fallara: estimated_tax es numerico continuo
+              arguments:
+                values: [0]
