@@ -11,7 +11,6 @@ select
     lines.order_priority,
     sum(lines.net_revenue) as net_revenue,
     count(*)               as line_count,
-    round(sum(lines.net_revenue) * 0.21, 2) as estimated_tax,
     customer.market_segment,
     nation.nation_name
 from lines
